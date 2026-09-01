@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0d1713">
+    <meta name="description" content="Una correspondencia extraordinaria para Shey.">
+    <title>Una carta para Shey</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/app.js" defer></script>
+  </head>
+  <body>
+    <main class="experience" aria-label="Carta de Hogwarts para Shey">
+      <div class="ambient-light" aria-hidden="true"></div>
+      <span class="spark spark--one" aria-hidden="true"></span>
+      <span class="spark spark--two" aria-hidden="true"></span>
+
+      <section class="arrival" aria-labelledby="arrival-title">
+        <p class="eyebrow">1 de septiembre</p>
+        <h1 id="arrival-title">Una correspondencia extraordinaria<br>ha llegado para Shey.</h1>
+
+        <div class="envelope-scene" aria-hidden="true">
+          <div class="envelope">
+            <div class="envelope__back"></div>
+            <div class="envelope__letter-preview"></div>
+            <div class="envelope__front"></div>
+            <div class="envelope__flap"></div>
+            <div class="seal seal--envelope">S</div>
+          </div>
+        </div>
+
+        <button class="open-letter" type="button" aria-controls="letter" aria-expanded="false">
+          <span>Abrir carta</span>
+        </button>
+      </section>
+
+      <section class="letter-stage" id="letter" aria-hidden="true">
+        <article class="letter" aria-labelledby="letter-heading">
+          <div class="letter__ornament" aria-hidden="true">◆</div>
+          <header class="letter__header">
+            <p id="letter-heading">Colegio Hogwarts</p>
+            <p>de Magia y Hechicería</p>
+          </header>
+          <p class="letter__date">1 de septiembre</p>
+          <div class="letter__body">
+            <p><strong>Querida Shey:</strong></p>
+            <p>Nos complace informarte que tu lugar en Hogwarts sigue reservado.</p>
+            <p>Sin embargo, después de una revisión extraordinaria de nuestros registros, hemos descubierto algo que no figuraba en ningún libro de hechizos.</p>
+            <p>Hay personas que llegan a nuestra vida sin necesidad de una lechuza, un andén secreto o una carta escrita con tinta verde.</p>
+            <p>Y, de alguna manera, hacen que el mundo cotidiano se sienta un poco más mágico.</p>
+            <p>Tú eres una de esas personas.</p>
+            <p>Así que este primero de septiembre no quería simplemente recordarte el regreso a Hogwarts. Quería enviarte mi propia carta.</p>
+            <p>Una pequeña invitación para seguir compartiendo aventuras, historias, risas y todos esos momentos que hacen que estar contigo se sienta como encontrar un lugar al que siempre quieres regresar.</p>
+            <p>Porque si pudiera elegir nuevamente una casa, un castillo o cualquier lugar mágico del mundo…</p>
+            <p class="letter__promise">seguiría eligiendo estar contigo.</p>
+          </div>
+          <footer class="letter__footer">
+            <p>Siempre tuyo,</p>
+            <p class="signature">Henry</p>
+            <button class="seal seal--letter" type="button" aria-label="Descubrir el mensaje secreto">S</button>
+          </footer>
+          <p class="postscript"><strong>P.D.</strong> El Expreso de Hogwarts parte cada 1 de septiembre.<br>Mi lugar favorito sigue siendo a tu lado.</p>
+          <p class="secret-message" role="status" aria-live="polite">Mischief managed, mi amor.</p>
+          <div class="letter__ornament letter__ornament--bottom" aria-hidden="true">◆</div>
+        </article>
+      </section>
+    </main>
+
+    <aside class="audio-control" aria-label="Control de música" hidden>
+      <audio id="background-music" loop preload="metadata">
+        <source src="assets/music/theme.mp3" type="audio/mpeg">
+      </audio>
+      <button class="audio-toggle" type="button" aria-label="Pausar música" aria-pressed="true">
+        <span class="audio-icon" aria-hidden="true">Ⅱ</span>
+      </button>
+      <label class="volume-control">
+        <span class="sr-only">Volumen de la música</span>
+        <input id="volume" type="range" min="0" max="1" step="0.05" value="0.35">
+      </label>
+    </aside>
+  </body>
+</html>
