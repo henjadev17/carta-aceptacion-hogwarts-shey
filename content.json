@@ -1,14 +1,9 @@
+```json
 {
   "arrival": {
     "date": "1 de septiembre",
-    "title": "Una correspondencia extraordinaria ha llegado para Shey.",
+    "title": "Una correspondencia extraordinaria ha llegado para Sheyla Marie.",
     "openButton": "Abrir carta"
-  },
-  "puzzle": {
-    "instruction": "Algunas cartas no pueden abrirse hasta reconocer el nombre de su destinataria.",
-    "hint": "Ordena las letras para revelar a quién pertenece esta correspondencia.",
-    "identified": "Destinataria identificada",
-    "recipient": "Sheyla Marie"
   },
   "letter": {
     "school": "Colegio Hogwarts",
@@ -17,19 +12,25 @@
     "greeting": "Querida Shey:",
     "paragraphs": [
       "Nos complace informarte que tu lugar en Hogwarts sigue reservado.",
-      "Sin embargo, después de una revisión extraordinaria de nuestros registros, hemos descubierto algo que no figuraba en ningún libro de hechizos.",
-      "Hay personas que llegan a nuestra vida sin necesidad de una lechuza, un andén secreto o una carta escrita con tinta verde.",
-      "Y, de alguna manera, hacen que el mundo cotidiano se sienta un poco más mágico.",
-      "Tú eres una de esas personas.",
-      "Así que este primero de septiembre no quería simplemente recordarte el regreso a Hogwarts. Quería enviarte mi propia carta.",
-      "Una pequeña invitación para seguir compartiendo aventuras, historias, risas y todos esos momentos que hacen que estar contigo se sienta como encontrar un lugar al que siempre quieres regresar.",
-      "Porque si pudiera elegir nuevamente una casa, un castillo o cualquier lugar mágico del mundo…"
+      "Como cada primero de septiembre, el Expreso de Hogwarts vuelve a partir desde el andén 9¾, las velas regresan a iluminar el Gran Comedor y los pasillos del castillo se preparan para recibir un nuevo año de historias, secretos y magia.",
+      "Sin embargo, al revisar nuestros registros, encontramos algo bastante curioso.",
+      "Tu nombre parece haberse quedado escrito entre sus páginas mucho después de que terminara el curso.",
+      "Quizá sea porque hay personas para quienes Hogwarts nunca es solamente un castillo.",
+      "Personas que todavía reconocen la magia en el sonido de una lechuza, que mirarían dos veces una pared de ladrillos buscando una entrada escondida y que, al escuchar las primeras notas de una melodía conocida, podrían regresar inmediatamente a ese mundo.",
+      "Tenemos motivos para creer que tú eres una de ellas.",
+      "Por eso, este primero de septiembre, consideramos apropiado recordarte algunas cosas importantes:",
+      "Que las escaleras pueden cambiar de dirección. Que los retratos pueden escuchar más de lo que deberían. Y que nunca conviene confiar demasiado en un libro que responde cuando escribes en él.",
+      "Y, sobre todo, que no hace falta recibir una nueva carta cada año para seguir perteneciendo a Hogwarts.",
+      "Algunas personas simplemente llevan un pequeño pedazo del castillo con ellas.",
+      "Así que prepara tu túnica, mantén tu varita cerca y procura no llegar tarde al tren.",
+      "El curso está a punto de comenzar."
     ],
-    "promise": "seguiría eligiendo estar contigo.",
-    "farewell": "Siempre tuyo,",
-    "signature": "Henry",
+    "promise": "Hogwarts siempre estará allí para quienes sepan dónde buscarlo.",
+    "farewell": "Con los mejores deseos para el nuevo curso,",
+    "signature": "Oficina de Correspondencia Mágica · Colegio Hogwarts de Magia y Hechicería",
     "postscript": "Si una lechuza aparece esta noche en tu ventana, procura no hacer demasiadas preguntas. Algunas cartas tardan un poco más que otras en encontrar a su destinataria.",
     "secret": "Mischief managed, mi amor.",
     "closeButton": "Cerrar carta"
   }
 }
+```
