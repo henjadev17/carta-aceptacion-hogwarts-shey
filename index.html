@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0d1713">
+    <meta name="description" content="Una correspondencia extraordinaria para Shey.">
+    <title>Una carta para Shey</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/app.js" defer></script>
+  </head>
+  <body>
+    <main class="experience" aria-label="Carta de Hogwarts para Shey">
+      <div class="ambient-light" aria-hidden="true"></div>
+      <span class="spark spark--one" aria-hidden="true"></span>
+      <span class="spark spark--two" aria-hidden="true"></span>
+
+      <section class="arrival" aria-labelledby="arrival-title">
+        <p class="eyebrow" data-content="arrival.date"></p>
+        <h1 id="arrival-title" data-content="arrival.title"></h1>
+
+        <section class="name-puzzle" aria-labelledby="puzzle-instruction">
+          <p id="puzzle-instruction" class="name-puzzle__instruction" data-content="puzzle.instruction"></p>
+          <p class="name-puzzle__hint" data-content="puzzle.hint"></p>
+          <div class="name-puzzle__answer" aria-label="Nombre formado" aria-live="polite"></div>
+          <div class="name-puzzle__letters" aria-label="Letras disponibles"></div>
+          <div class="name-puzzle__success" role="status" aria-live="polite">
+            <span data-content="puzzle.identified"></span>
+            <strong data-content="puzzle.recipient"></strong>
+          </div>
+        </section>
+
+        <div class="envelope-scene" aria-hidden="true">
+          <div class="envelope">
+            <div class="envelope__back"></div>
+            <div class="envelope__letter-preview"></div>
+            <div class="envelope__front"></div>
+            <div class="envelope__flap"></div>
+            <div class="seal seal--envelope">S</div>
+            <p class="envelope__recipient" data-content="puzzle.recipient"></p>
+          </div>
+        </div>
+
+        <button class="open-letter" type="button" aria-controls="letter" aria-expanded="false" disabled>
+          <span data-content="arrival.openButton">Abrir carta</span>
+        </button>
+      </section>
+
+      <section class="letter-stage" id="letter" aria-hidden="true">
+        <article class="letter" aria-labelledby="letter-heading">
+          <div class="letter__ornament" aria-hidden="true">◆</div>
+          <header class="letter__header writing-text">
+            <p id="letter-heading" data-content="letter.school"></p>
+            <p data-content="letter.subtitle"></p>
+          </header>
+          <p class="letter__date writing-text" data-content="letter.date"></p>
+          <div class="letter__body writing-text" id="letter-body"></div>
+          <footer class="letter__footer writing-text">
+            <p data-content="letter.farewell"></p>
+            <p class="signature" data-content="letter.signature"></p>
+            <button class="seal seal--letter" type="button" aria-label="Descubrir el mensaje secreto">S</button>
+          </footer>
+          <p class="postscript writing-text"><strong>P. D.</strong> <span data-content="letter.postscript"></span></p>
+          <p class="secret-message" role="status" aria-live="polite" data-content="letter.secret"></p>
+          <div class="letter__ornament letter__ornament--bottom" aria-hidden="true">◆</div>
+          <button class="close-letter" type="button" data-content="letter.closeButton">Cerrar carta</button>
+        </article>
+      </section>
+    </main>
+
+    <aside class="audio-control" aria-label="Control de música" hidden>
+      <audio id="background-music" loop preload="metadata">
+        <source src="assets/music/theme.mp3" type="audio/mpeg">
+      </audio>
+      <button class="audio-toggle" type="button" aria-label="Pausar música" aria-pressed="true">
+        <span class="audio-icon" aria-hidden="true">Ⅱ</span>
+      </button>
+      <label class="volume-control">
+        <span class="sr-only">Volumen de la música</span>
+        <input id="volume" type="range" min="0" max="1" step="0.05" value="0.35">
+      </label>
+    </aside>
+  </body>
+</html>

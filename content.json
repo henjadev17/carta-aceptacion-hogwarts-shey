@@ -1,0 +1,35 @@
+{
+  "arrival": {
+    "date": "1 de septiembre",
+    "title": "Una correspondencia extraordinaria ha llegado para Shey.",
+    "openButton": "Abrir carta"
+  },
+  "puzzle": {
+    "instruction": "Algunas cartas no pueden abrirse hasta reconocer el nombre de su destinataria.",
+    "hint": "Ordena las letras para revelar a quién pertenece esta correspondencia.",
+    "identified": "Destinataria identificada",
+    "recipient": "Sheyla Marie"
+  },
+  "letter": {
+    "school": "Colegio Hogwarts",
+    "subtitle": "de Magia y Hechicería",
+    "date": "1 de septiembre",
+    "greeting": "Querida Shey:",
+    "paragraphs": [
+      "Nos complace informarte que tu lugar en Hogwarts sigue reservado.",
+      "Sin embargo, después de una revisión extraordinaria de nuestros registros, hemos descubierto algo que no figuraba en ningún libro de hechizos.",
+      "Hay personas que llegan a nuestra vida sin necesidad de una lechuza, un andén secreto o una carta escrita con tinta verde.",
+      "Y, de alguna manera, hacen que el mundo cotidiano se sienta un poco más mágico.",
+      "Tú eres una de esas personas.",
+      "Así que este primero de septiembre no quería simplemente recordarte el regreso a Hogwarts. Quería enviarte mi propia carta.",
+      "Una pequeña invitación para seguir compartiendo aventuras, historias, risas y todos esos momentos que hacen que estar contigo se sienta como encontrar un lugar al que siempre quieres regresar.",
+      "Porque si pudiera elegir nuevamente una casa, un castillo o cualquier lugar mágico del mundo…"
+    ],
+    "promise": "seguiría eligiendo estar contigo.",
+    "farewell": "Siempre tuyo,",
+    "signature": "Henry",
+    "postscript": "Si una lechuza aparece esta noche en tu ventana, procura no hacer demasiadas preguntas. Algunas cartas tardan un poco más que otras en encontrar a su destinataria.",
+    "secret": "Mischief managed, mi amor.",
+    "closeButton": "Cerrar carta"
+  }
+}
