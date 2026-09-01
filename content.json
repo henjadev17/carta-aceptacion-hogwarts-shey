@@ -4,6 +4,12 @@
     "title": "Una correspondencia extraordinaria ha llegado para Shey.",
     "openButton": "Abrir carta"
   },
+  "puzzle": {
+    "instruction": "Algunas cartas no pueden abrirse hasta reconocer el nombre de su destinataria.",
+    "hint": "Ordena las letras para revelar a quién pertenece esta correspondencia.",
+    "identified": "Destinataria identificada",
+    "recipient": "Sheyla Marie"
+  },
   "letter": {
     "school": "Colegio Hogwarts",
     "subtitle": "de Magia y Hechicería",
@@ -22,7 +28,7 @@
     "promise": "seguiría eligiendo estar contigo.",
     "farewell": "Siempre tuyo,",
     "signature": "Henry",
-    "postscript": "El Expreso de Hogwarts parte cada 1 de septiembre. Mi lugar favorito sigue siendo a tu lado.",
+    "postscript": "Si una lechuza aparece esta noche en tu ventana, procura no hacer demasiadas preguntas. Algunas cartas tardan un poco más que otras en encontrar a su destinataria.",
     "secret": "Mischief managed, mi amor.",
     "closeButton": "Cerrar carta"
   }

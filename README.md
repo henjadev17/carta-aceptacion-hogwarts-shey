@@ -19,4 +19,6 @@ Antes de iniciar la web, añade tu pista como `assets/music/theme.mp3`. Después
 - `index.html`: contenido semántico de la experiencia y la carta.
 - `css/styles.css`: pergamino, sobre, animaciones y adaptación responsive.
 - `js/app.js`: apertura, reproducción/volumen de audio y mensaje secreto.
+- El puzzle previo se resuelve tocando las letras en orden para formar `SHEYLA MARIE`;
+  tocar una letra ya colocada la devuelve a las disponibles.
 - `assets/music/theme.mp3`: ubicación esperada para la pista musical (debe añadirse manualmente).

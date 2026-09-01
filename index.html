@@ -19,6 +19,17 @@
         <p class="eyebrow" data-content="arrival.date"></p>
         <h1 id="arrival-title" data-content="arrival.title"></h1>
 
+        <section class="name-puzzle" aria-labelledby="puzzle-instruction">
+          <p id="puzzle-instruction" class="name-puzzle__instruction" data-content="puzzle.instruction"></p>
+          <p class="name-puzzle__hint" data-content="puzzle.hint"></p>
+          <div class="name-puzzle__answer" aria-label="Nombre formado" aria-live="polite"></div>
+          <div class="name-puzzle__letters" aria-label="Letras disponibles"></div>
+          <div class="name-puzzle__success" role="status" aria-live="polite">
+            <span data-content="puzzle.identified"></span>
+            <strong data-content="puzzle.recipient"></strong>
+          </div>
+        </section>
+
         <div class="envelope-scene" aria-hidden="true">
           <div class="envelope">
             <div class="envelope__back"></div>
@@ -26,6 +37,7 @@
             <div class="envelope__front"></div>
             <div class="envelope__flap"></div>
             <div class="seal seal--envelope">S</div>
+            <p class="envelope__recipient" data-content="puzzle.recipient"></p>
           </div>
         </div>
 
@@ -48,7 +60,7 @@
             <p class="signature" data-content="letter.signature"></p>
             <button class="seal seal--letter" type="button" aria-label="Descubrir el mensaje secreto">S</button>
           </footer>
-          <p class="postscript writing-text"><strong>P.D.</strong> <span data-content="letter.postscript"></span></p>
+          <p class="postscript writing-text"><strong>P. D.</strong> <span data-content="letter.postscript"></span></p>
           <p class="secret-message" role="status" aria-live="polite" data-content="letter.secret"></p>
           <div class="letter__ornament letter__ornament--bottom" aria-hidden="true">◆</div>
           <button class="close-letter" type="button" data-content="letter.closeButton">Cerrar carta</button>

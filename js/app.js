@@ -9,10 +9,17 @@ const audioIcon = document.querySelector('.audio-icon');
 const volume = document.querySelector('#volume');
 const secretSeal = document.querySelector('.seal--letter');
 const secretMessage = document.querySelector('.secret-message');
+const puzzle = document.querySelector('.name-puzzle');
+const puzzleAnswer = document.querySelector('.name-puzzle__answer');
+const puzzleLetters = document.querySelector('.name-puzzle__letters');
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const recipientName = 'SHEYLAMARIE';
 let secretTimer;
 let animationTimers = [];
 let isTransitioning = false;
+let puzzleSolved = false;
+let availableLetters = [];
+let selectedLetters = [];
 
 function getValue(object, path) {
   return path.split('.').reduce((value, key) => value?.[key], object);
@@ -42,7 +49,87 @@ function renderContent(content) {
   promise.textContent = content.letter.promise;
   body.append(promise);
   prepareWritingEffect();
-  openButton.disabled = false;
+  resetPuzzle();
+}
+
+function shuffleLetters() {
+  const letters = [...recipientName].map((letter, id) => ({ letter, id }));
+  do {
+    for (let index = letters.length - 1; index > 0; index -= 1) {
+      const randomIndex = Math.floor(Math.random() * (index + 1));
+      [letters[index], letters[randomIndex]] = [letters[randomIndex], letters[index]];
+    }
+  } while (letters.map(({ letter }) => letter).join('') === recipientName);
+  return letters;
+}
+
+function createLetterButton(item, selected = false) {
+  const button = document.createElement('button');
+  button.type = 'button';
+  button.className = `name-puzzle__letter${selected ? ' is-selected' : ''}`;
+  button.textContent = item.letter;
+  button.setAttribute('aria-label', selected
+    ? `Quitar letra ${item.letter}`
+    : `Colocar letra ${item.letter}`);
+  button.addEventListener('click', () => selected ? removeLetter(item.id) : selectLetter(item.id));
+  return button;
+}
+
+function renderPuzzle() {
+  puzzleAnswer.replaceChildren();
+  selectedLetters.forEach((item, index) => {
+    if (index === 6) {
+      const separator = document.createElement('span');
+      separator.className = 'name-puzzle__space';
+      separator.setAttribute('aria-hidden', 'true');
+      puzzleAnswer.append(separator);
+    }
+    puzzleAnswer.append(createLetterButton(item, true));
+  });
+
+  const emptySlots = recipientName.length - selectedLetters.length;
+  for (let index = 0; index < emptySlots; index += 1) {
+    const slot = document.createElement('span');
+    slot.className = 'name-puzzle__slot';
+    slot.setAttribute('aria-hidden', 'true');
+    puzzleAnswer.append(slot);
+  }
+
+  puzzleLetters.replaceChildren(...availableLetters.map((item) => createLetterButton(item)));
+}
+
+function selectLetter(id) {
+  if (puzzleSolved) return;
+  const index = availableLetters.findIndex((item) => item.id === id);
+  selectedLetters.push(...availableLetters.splice(index, 1));
+  renderPuzzle();
+  if (selectedLetters.map(({ letter }) => letter).join('') === recipientName) solvePuzzle();
+}
+
+function removeLetter(id) {
+  if (puzzleSolved) return;
+  const index = selectedLetters.findIndex((item) => item.id === id);
+  availableLetters.push(...selectedLetters.splice(index, 1));
+  renderPuzzle();
+}
+
+function solvePuzzle() {
+  puzzleSolved = true;
+  puzzle.classList.add('is-solved');
+  window.setTimeout(() => {
+    puzzle.classList.add('is-addressed');
+    openButton.disabled = false;
+    openButton.focus({ preventScroll: true });
+  }, reducedMotion ? 0 : 1250);
+}
+
+function resetPuzzle() {
+  puzzleSolved = false;
+  selectedLetters = [];
+  availableLetters = shuffleLetters();
+  puzzle.classList.remove('is-solved', 'is-addressed');
+  openButton.disabled = true;
+  renderPuzzle();
 }
 
 function prepareWritingEffect() {
@@ -101,7 +188,7 @@ async function playMusic() {
 }
 
 function openLetter() {
-  if (isTransitioning) return;
+  if (isTransitioning || !puzzleSolved) return;
   isTransitioning = true;
   openButton.setAttribute('aria-expanded', 'true');
   experience.classList.add('is-opening');
@@ -128,6 +215,7 @@ function closeLetter() {
   const writingDuration = animateWriting(false);
 
   window.setTimeout(() => {
+    resetPuzzle();
     experience.classList.remove('is-revealed', 'is-open', 'is-opening');
     letterStage.setAttribute('aria-hidden', 'true');
     openButton.setAttribute('aria-expanded', 'false');
@@ -137,7 +225,7 @@ function closeLetter() {
     window.setTimeout(() => {
       audioControl.hidden = true;
       isTransitioning = false;
-      openButton.focus({ preventScroll: true });
+      puzzleLetters.querySelector('button')?.focus({ preventScroll: true });
     }, reducedMotion ? 0 : 900);
   }, writingDuration);
 }

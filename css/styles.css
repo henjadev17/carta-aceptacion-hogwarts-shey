@@ -34,7 +34,19 @@ button { color: inherit; }
 .arrival { min-height: 100svh; display: grid; place-items: center; align-content: center; gap: 1rem; padding: 2rem 1.25rem; text-align: center; transition: opacity .7s ease, transform .9s ease; }
 .eyebrow { margin: 0; color: var(--antique-gold); font: 600 .72rem/1 var(--title); letter-spacing: .25em; text-transform: uppercase; }
 .arrival h1 { margin: 0; color: #e7dcc3; font: 500 clamp(1.15rem, 4.8vw, 1.6rem)/1.35 var(--title); letter-spacing: .025em; }
-.envelope-scene { width: min(82vw, 390px); height: min(57vw, 270px); margin: .5rem 0; perspective: 1000px; }
+.name-puzzle { width:min(92vw,560px); color:#e7dcc3; transition:filter .7s,transform .7s }
+.name-puzzle__instruction { margin:.25rem auto .45rem; max-width:520px; font:500 clamp(.92rem,3.5vw,1.08rem)/1.55 var(--title) }
+.name-puzzle__hint { margin:0 auto 1rem; color:#bfb39a; font:italic clamp(.7rem,2.5vw,.8rem)/1.55 var(--body) }
+.name-puzzle__answer,.name-puzzle__letters { display:flex; justify-content:center; align-items:center; flex-wrap:wrap; gap:.35rem; min-height:42px }
+.name-puzzle__answer { margin-bottom:.8rem; flex-wrap:nowrap }
+.name-puzzle__letter,.name-puzzle__slot { width:clamp(24px,7vw,34px); height:38px; border:0; border-bottom:1px solid rgba(184,154,90,.7); background:rgba(233,217,181,.05); color:#dfd0ad; font:600 1.05rem var(--title) }
+.name-puzzle__letter { cursor:pointer; transition:transform .2s,background .2s,color .2s }.name-puzzle__letter:hover,.name-puzzle__letter:focus-visible { background:rgba(184,154,90,.15); transform:translateY(-2px); outline:1px solid rgba(184,154,90,.55); outline-offset:2px }
+.name-puzzle__letter.is-selected { color:var(--parchment-light); background:rgba(31,73,56,.4) }.name-puzzle__space { flex:0 0 clamp(8px,2.5vw,16px) }
+.name-puzzle__success { display:grid; min-height:0; opacity:0; transform:translateY(8px); transition:opacity .7s,transform .7s;color:var(--antique-gold);font:600 .7rem var(--title);letter-spacing:.18em;text-transform:uppercase }.name-puzzle__success strong { color:#eadfc6;font:600 clamp(1.35rem,5vw,1.8rem) var(--title);letter-spacing:.08em;text-transform:none }
+.name-puzzle.is-solved { filter:drop-shadow(0 0 8px rgba(184,154,90,.35));animation:identified-glow 1.2s ease }.name-puzzle.is-solved .name-puzzle__letters { opacity:0;pointer-events:none }.name-puzzle.is-solved .name-puzzle__answer .name-puzzle__letter { border-color:transparent;background:transparent;pointer-events:none }.name-puzzle.is-solved .name-puzzle__success { opacity:1;transform:none }
+.name-puzzle.is-addressed .name-puzzle__instruction,.name-puzzle.is-addressed .name-puzzle__hint,.name-puzzle.is-addressed .name-puzzle__answer,.name-puzzle.is-addressed .name-puzzle__letters { display:none }
+.envelope-scene { width:min(82vw,390px); height:0; margin:0; perspective:1000px; opacity:0; visibility:hidden; transform:translateY(12px); transition:height .7s,margin .7s,opacity .7s,transform .7s,visibility 0s .7s }
+.name-puzzle.is-addressed ~ .envelope-scene { height:min(57vw,270px);margin:.5rem 0;opacity:1;visibility:visible;transform:none;transition-delay:0s }
 .envelope { position: relative; width: 100%; height: 100%; filter: drop-shadow(0 25px 22px rgba(0,0,0,.45)); }
 .envelope__back, .envelope__front, .envelope__flap { position: absolute; inset: 0; }
 .envelope__back { border-radius: 3px; background: linear-gradient(145deg, #dbc79d, #bfa575); border: 1px solid #a78a56; }
@@ -43,7 +55,9 @@ button { color: inherit; }
 .envelope__flap { z-index: 3; height: 62%; transform-origin: top; background: linear-gradient(165deg, #ead9b5, #c5ab78); clip-path: polygon(0 0,100% 0,50% 100%); transition: transform .8s cubic-bezier(.4,0,.2,1), z-index 0s .4s; }
 .seal { display: grid; place-items: center; border: 0; border-radius: 50%; background: radial-gradient(circle at 38% 30%, #477461, #173a2c 60%, #0f281e); color: #d5c69f; font: 600 1.3rem var(--title); box-shadow: 0 4px 8px rgba(36,25,12,.38), inset 0 0 0 3px rgba(174,183,178,.23), inset 0 0 0 5px rgba(20,45,36,.65); }
 .seal--envelope { position: absolute; z-index: 4; width: 58px; height: 58px; left: calc(50% - 29px); top: 44%; transition: opacity .3s .15s, transform .5s; }
-.open-letter { position: relative; border: 0; padding: .65rem 1.8rem .8rem; background: transparent; color: #d9c79f; font: 600 1.05rem var(--title); letter-spacing: .1em; cursor: pointer; }
+.envelope__recipient { position:absolute;z-index:3;left:8%;bottom:8%;margin:0;color:var(--slytherin-deep);font:600 italic 1rem var(--title);opacity:0;transform:translateY(5px);transition:opacity .8s .45s,transform .8s .45s }.name-puzzle.is-addressed ~ .envelope-scene .envelope__recipient { opacity:.82;transform:none }
+.open-letter { position: relative; border: 0; padding: .65rem 1.8rem .8rem; background: transparent; color: #d9c79f; font: 600 1.05rem var(--title); letter-spacing: .1em; cursor: pointer; opacity:0; visibility:hidden; transition:opacity .5s,visibility 0s .5s }
+.name-puzzle.is-addressed ~ .open-letter { opacity:1;visibility:visible;transition-delay:.45s }
 .open-letter:disabled { opacity:.55; cursor:wait }
 .open-letter::before, .open-letter::after { content: ''; position: absolute; left: 0; right: 0; height: 1px; background: linear-gradient(90deg,transparent,var(--antique-gold),transparent); transition: transform .3s; }.open-letter::before{top:0}.open-letter::after{bottom:0}
 .open-letter:hover::before,.open-letter:hover::after { transform: scaleX(.75); }.open-letter:focus-visible,.seal:focus-visible,.audio-toggle:focus-visible,input:focus-visible { outline: 2px solid var(--antique-gold); outline-offset: 4px; }
@@ -63,7 +77,7 @@ button { color: inherit; }
 
 .is-opening .envelope__flap { z-index:0; transform:rotateX(180deg) }.is-opening .seal--envelope { opacity:0; transform:scale(.7) }.is-opening .envelope__letter-preview { transform:translateY(-55%) }.is-opening .open-letter { opacity:0; pointer-events:none }.is-open .arrival { position:absolute; width:100%; opacity:0; transform:scale(.92); pointer-events:none }.is-open .letter-stage { display:block }.is-revealed .letter-stage { opacity:1; transform:none }
 .audio-control { position:fixed; z-index:10; right:.8rem; bottom:max(.8rem,env(safe-area-inset-bottom)); display:flex; align-items:center; gap:.55rem; padding:.38rem .55rem; border:1px solid rgba(184,154,90,.35); border-radius:30px; background:rgba(10,19,15,.85); backdrop-filter:blur(8px); opacity:0; transform:translateY(10px); transition:.5s }.audio-control.is-visible { opacity:1; transform:none }.audio-toggle { width:34px;height:34px;border:0;border-radius:50%;background:transparent;color:#d9c79f;cursor:pointer }.audio-icon { font:600 .85rem sans-serif;letter-spacing:-.12em }.volume-control { display:flex;width:64px }.volume-control input { width:100%; accent-color:var(--antique-gold) }
-@keyframes breathe { to { opacity:.45; transform:translateY(4vw) scale(1.08) } } @keyframes glimmer { 0%,75%,100%{opacity:0} 84%{opacity:.55} }
+@keyframes breathe { to { opacity:.45; transform:translateY(4vw) scale(1.08) } } @keyframes glimmer { 0%,75%,100%{opacity:0} 84%{opacity:.55} } @keyframes identified-glow { 45%{filter:drop-shadow(0 0 13px rgba(184,154,90,.58)) drop-shadow(0 0 4px rgba(53,102,83,.55))} }
 @media (min-width: 600px) { .letter-stage { padding:5rem 1.5rem 7rem }.letter { padding-top:3.5rem;padding-bottom:3.5rem }.arrival { gap:1.25rem } }
 @media (max-width: 380px) { .arrival { padding-inline:.8rem }.letter { padding-inline:1.1rem }.letter__body { font-size:.82rem }.envelope-scene { width:88vw;height:61vw }.letter__ornament::before,.letter__ornament::after{width:19%;margin-inline:.5rem} }
 @media (prefers-reduced-motion: reduce) { *,*::before,*::after { scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important }.spark { display:none } }
