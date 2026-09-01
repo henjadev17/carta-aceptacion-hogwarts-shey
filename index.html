@@ -16,8 +16,8 @@
       <span class="spark spark--two" aria-hidden="true"></span>
 
       <section class="arrival" aria-labelledby="arrival-title">
-        <p class="eyebrow">1 de septiembre</p>
-        <h1 id="arrival-title">Una correspondencia extraordinaria<br>ha llegado para Shey.</h1>
+        <p class="eyebrow" data-content="arrival.date"></p>
+        <h1 id="arrival-title" data-content="arrival.title"></h1>
 
         <div class="envelope-scene" aria-hidden="true">
           <div class="envelope">
@@ -29,39 +29,29 @@
           </div>
         </div>
 
-        <button class="open-letter" type="button" aria-controls="letter" aria-expanded="false">
-          <span>Abrir carta</span>
+        <button class="open-letter" type="button" aria-controls="letter" aria-expanded="false" disabled>
+          <span data-content="arrival.openButton">Abrir carta</span>
         </button>
       </section>
 
       <section class="letter-stage" id="letter" aria-hidden="true">
         <article class="letter" aria-labelledby="letter-heading">
           <div class="letter__ornament" aria-hidden="true">◆</div>
-          <header class="letter__header">
-            <p id="letter-heading">Colegio Hogwarts</p>
-            <p>de Magia y Hechicería</p>
+          <header class="letter__header writing-text">
+            <p id="letter-heading" data-content="letter.school"></p>
+            <p data-content="letter.subtitle"></p>
           </header>
-          <p class="letter__date">1 de septiembre</p>
-          <div class="letter__body">
-            <p><strong>Querida Shey:</strong></p>
-            <p>Nos complace informarte que tu lugar en Hogwarts sigue reservado.</p>
-            <p>Sin embargo, después de una revisión extraordinaria de nuestros registros, hemos descubierto algo que no figuraba en ningún libro de hechizos.</p>
-            <p>Hay personas que llegan a nuestra vida sin necesidad de una lechuza, un andén secreto o una carta escrita con tinta verde.</p>
-            <p>Y, de alguna manera, hacen que el mundo cotidiano se sienta un poco más mágico.</p>
-            <p>Tú eres una de esas personas.</p>
-            <p>Así que este primero de septiembre no quería simplemente recordarte el regreso a Hogwarts. Quería enviarte mi propia carta.</p>
-            <p>Una pequeña invitación para seguir compartiendo aventuras, historias, risas y todos esos momentos que hacen que estar contigo se sienta como encontrar un lugar al que siempre quieres regresar.</p>
-            <p>Porque si pudiera elegir nuevamente una casa, un castillo o cualquier lugar mágico del mundo…</p>
-            <p class="letter__promise">seguiría eligiendo estar contigo.</p>
-          </div>
-          <footer class="letter__footer">
-            <p>Siempre tuyo,</p>
-            <p class="signature">Henry</p>
+          <p class="letter__date writing-text" data-content="letter.date"></p>
+          <div class="letter__body writing-text" id="letter-body"></div>
+          <footer class="letter__footer writing-text">
+            <p data-content="letter.farewell"></p>
+            <p class="signature" data-content="letter.signature"></p>
             <button class="seal seal--letter" type="button" aria-label="Descubrir el mensaje secreto">S</button>
           </footer>
-          <p class="postscript"><strong>P.D.</strong> El Expreso de Hogwarts parte cada 1 de septiembre.<br>Mi lugar favorito sigue siendo a tu lado.</p>
-          <p class="secret-message" role="status" aria-live="polite">Mischief managed, mi amor.</p>
+          <p class="postscript writing-text"><strong>P.D.</strong> <span data-content="letter.postscript"></span></p>
+          <p class="secret-message" role="status" aria-live="polite" data-content="letter.secret"></p>
           <div class="letter__ornament letter__ornament--bottom" aria-hidden="true">◆</div>
+          <button class="close-letter" type="button" data-content="letter.closeButton">Cerrar carta</button>
         </article>
       </section>
     </main>

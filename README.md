@@ -15,6 +15,7 @@ Antes de iniciar la web, añade tu pista como `assets/music/theme.mp3`. Después
 
 ## Estructura
 
+- `content.json`: todos los textos editables de la portada y de la carta.
 - `index.html`: contenido semántico de la experiencia y la carta.
 - `css/styles.css`: pergamino, sobre, animaciones y adaptación responsive.
 - `js/app.js`: apertura, reproducción/volumen de audio y mensaje secreto.
